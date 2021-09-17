@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
 
-    [SerializeField] private LayerMask jumpableGround;
+    [SerializeField] private LayerMask jumpableGround; // Create the seralized field so that you can pass the layer so that you can jump off of the ground
 
 
     private float dirx =0f;
@@ -79,7 +79,9 @@ public class PlayerMovement : MonoBehaviour
 
         anim.SetInteger("state", (int)state);
     }
-     private bool IsGrounded()
+     private bool IsGrounded() //Used to get player on set to ground. Create a box around the player that has the same shape has boxcolider (green shape), positions second box over it
+        //the 0f is the rotation, the vector2.down moves the box downward slightly so you can use the other box to check if something is overlapping with it, use this to see if something is on
+        //ground, then you apply a layer to the terrain, (make it the ground layer), layer has been passed at the top of unity. , it returns a bool. If it is overlapping, it will pass true 
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
