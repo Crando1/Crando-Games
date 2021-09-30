@@ -9,25 +9,27 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D coll;
     private SpriteRenderer sprite;
-    private Animator anim;
+    
 
     //When we want to pass a layer we declare it as a layer mask (which we have to do to show that player is touching ground layer which is assinged to terrain)
     [SerializeField] private LayerMask jumpableGround;
+    [SerializeField] private Animator anim;
 
     //With the enum, we are creating it's own variable type so we can pull it up by doing Movementstate.
     private enum MovementState { idle, running, jumping, falling }
 
     private float dirX = 0f;
+    private float lastDirection = 0f;
    [SerializeField] private float moveSpeed = 7f;
    [SerializeField] private float jumpForce = 7f;
 
-
+     
     // Start is called before the first frame update
     private void Start()
     {
         //execute what rb exquals here so it does on start
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+       
         sprite = GetComponent<SpriteRenderer>();
         coll = GetComponent<BoxCollider2D>();
 
@@ -40,6 +42,18 @@ public class PlayerMovement : MonoBehaviour
                 //Better to use the command press button down so it can later be remppaed, when doing this, bottom (in this case jump) will be in caps
 
         //When doing left and right movement, we get a + or - x value, use input.get axis to get the axis of the orizational
+        if(dirX != 0)
+        {
+            lastDirection = dirX;
+            if(dirX < 0)
+            {
+                lastDirection = -1;
+            }
+            else
+            {
+                lastDirection = 1;
+            }
+        }
        dirX  = Input.GetAxis("Horizontal");
         //rb.vecolicty, calls the rigid body compoenet and then allows you to access velocity
         //Mulitply it by dirx so if it is negitive you go left, if positive you go right
@@ -59,10 +73,15 @@ public class PlayerMovement : MonoBehaviour
         }
         //Now we can just call the code here
         UpdateAnimationState();
+
+        anim.SetFloat("movedirection", dirX);
+        anim.SetFloat("lastmovedirection", lastDirection);
     }
     //To make the code clearning, mae this code for updating animation state, do the () after the moethod meaning it doesn't return anything
     private void UpdateAnimationState()
     { //This valuble state will get assigned a value depending on our movement
+
+     /*
         MovementState state;
         if (dirX > 0f)
         {
@@ -96,6 +115,8 @@ public class PlayerMovement : MonoBehaviour
         }
         //second state is supposed to be a int but it is an enum, to get around this  put the (int)
         anim.SetInteger("state", (int) state);
+
+        */
     }
 
     private bool IsGrounded()
