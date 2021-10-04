@@ -72,16 +72,24 @@ public class PlayerMovement : MonoBehaviour
 
         }
         //Now we can just call the code here
-        UpdateAnimationState();
+       // UpdateAnimationState();
 
         anim.SetFloat("movedirection", dirX);
         anim.SetFloat("lastmovedirection", lastDirection);
     }
-    //To make the code clearning, mae this code for updating animation state, do the () after the moethod meaning it doesn't return anything
-    private void UpdateAnimationState()
-    { //This valuble state will get assigned a value depending on our movement
+   // private void UpdateAnimationState()
+  //  {
+     //   if()
+   //}
 
-     /*
+
+
+    //To make the code clearning, mae this code for updating animation state, do the () after the moethod meaning it doesn't return anything
+    /*
+       private void UpdateAnimationState()
+       { //This valuble state will get assigned a value depending on our movement
+
+    
         MovementState state;
         if (dirX > 0f)
         {
@@ -116,17 +124,21 @@ public class PlayerMovement : MonoBehaviour
         //second state is supposed to be a int but it is an enum, to get around this  put the (int)
         anim.SetInteger("state", (int) state);
 
-        */
-    }
+        
+       }
+    */
 
     private bool IsGrounded()
     {
         //We create a box around our player that has the same shape as the box collider (green rectangle), size and bounds do this
         //, rotation is zero, vector2.down moves the box just slightly downwards, we can use this box to see if something overlapps with it, example the ground
         //We do reutrn so that whenever isgrounded is run, it will return if the cast is on jumpable ground
-       return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
 
     }
+
+
+
 }
 
 
