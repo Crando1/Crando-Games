@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     //With the enum, we are creating it's own variable type so we can pull it up by doing Movementstate.
     private enum MovementState { idle, running, jumping, falling }
 
+    private float jump = 0f;
     private float dirX = 0f;
     private float lastDirection = 0f;
    [SerializeField] private float moveSpeed = 7f;
@@ -68,19 +69,25 @@ public class PlayerMovement : MonoBehaviour
             //Vector3, data holder for 3 values (x, y, z)
             //Can often use vector2 for 2d game as there are only two directions to move
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
+            
 
         }
         //Now we can just call the code here
-       // UpdateAnimationState();
-
+        UpdateAnimationState();
+        jump = rb.velocity.y;
+        anim.SetFloat("jump", jump);
         anim.SetFloat("movedirection", dirX);
         anim.SetFloat("lastmovedirection", lastDirection);
     }
-   // private void UpdateAnimationState()
-  //  {
-     //   if()
-   //}
+    
+    private void UpdateAnimationState()
+    {
+        if (dirx)
+        {
+
+        }
+    }
+    
 
 
 
