@@ -38738,6 +38738,7 @@ GameObject:
   - component: {fileID: 1705887619}
   - component: {fileID: 1705887620}
   - component: {fileID: 1705887621}
+  - component: {fileID: 1705887622}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -38757,8 +38758,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 15
+  m_LinearDrag: 8
   m_AngularDrag: 0.05
   m_GravityScale: 1.5
   m_Material: {fileID: 0}
@@ -38864,7 +38865,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705887613}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4df82678fbadc34089dd3881edba833, type: 3}
   m_Name: 
@@ -38919,6 +38920,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76da56051c497484095503f00f4296a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1705887622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705887613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbec701f87ede19409d631a38c18c1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpableGround:
+    serializedVersion: 2
+    m_Bits: 0
+  animator: {fileID: 1705887619}
+  spriteRenderer: {fileID: 1705887615}
+  boxCollider: {fileID: 1705887617}
+  rigidBody2d: {fileID: 1705887614}
+  dirY: 0
+  dirX: 0
+  moveSpeed: 18
+  jumpForce: 7
 --- !u!1001 &1715880282
 PrefabInstance:
   m_ObjectHideFlags: 0

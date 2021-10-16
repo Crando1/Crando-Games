@@ -55,6 +55,14 @@ public class PlayerMovement : MonoBehaviour
                 lastDirection = 1;
             }
         }
+        if(dirX > 0)
+        {
+            lastDirection = 1;
+        }
+        else
+        {
+            lastDirection = -1;
+        }
        dirX  = Input.GetAxis("Horizontal");
         //rb.vecolicty, calls the rigid body compoenet and then allows you to access velocity
         //Mulitply it by dirx so if it is negitive you go left, if positive you go right
@@ -62,8 +70,8 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            
-           
+            anim.SetTrigger("jump");
+
 
             //Use get component to get access to the compenent in unity
             //Vector3, data holder for 3 values (x, y, z)
@@ -73,13 +81,28 @@ public class PlayerMovement : MonoBehaviour
 
         }
         //Now we can just call the code here
-        UpdateAnimationState();
+        //UpdateAnimationState();
         jump = rb.velocity.y;
-        anim.SetFloat("jump", jump);
+        
         anim.SetFloat("movedirection", dirX);
         anim.SetFloat("lastmovedirection", lastDirection);
+       
+        if(dirX < 0)
+        {
+            anim.SetBool("moving", true);
+        }
+        else
+        {
+            anim.SetBool("moving", false);
+        }
     }
-    
+
+    public void ResetJump()
+    {
+        anim.ResetTrigger("jump");
+    }
+
+    /*
     private void UpdateAnimationState()
     {
         if (dirx)
@@ -87,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
-    
+    */
 
 
 
