@@ -38733,11 +38733,9 @@ GameObject:
   - component: {fileID: 1705887616}
   - component: {fileID: 1705887615}
   - component: {fileID: 1705887614}
-  - component: {fileID: 1705887618}
   - component: {fileID: 1705887617}
   - component: {fileID: 1705887619}
   - component: {fileID: 1705887620}
-  - component: {fileID: 1705887621}
   - component: {fileID: 1705887622}
   m_Layer: 0
   m_Name: Player
@@ -38761,7 +38759,7 @@ Rigidbody2D:
   m_Mass: 15
   m_LinearDrag: 8
   m_AngularDrag: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -38826,7 +38824,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705887613}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.26, y: 0.48, z: 0}
+  m_LocalPosition: {x: -7.95, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -38858,24 +38856,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6244087, y: 1.0622048}
   m_EdgeRadius: 0
---- !u!114 &1705887618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705887613}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4df82678fbadc34089dd3881edba833, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpableGround:
-    serializedVersion: 2
-    m_Bits: 64
-  anim: {fileID: 1705887619}
-  moveSpeed: 7
-  jumpForce: 7
 --- !u!95 &1705887619
 Animator:
   serializedVersion: 3
@@ -38908,18 +38888,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementalText: {fileID: 1952522384}
---- !u!114 &1705887621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705887613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76da56051c497484095503f00f4296a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1705887622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38934,15 +38902,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpableGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   animator: {fileID: 1705887619}
   spriteRenderer: {fileID: 1705887615}
   boxCollider: {fileID: 1705887617}
   rigidBody2d: {fileID: 1705887614}
-  dirY: 0
-  dirX: 0
-  moveSpeed: 18
-  jumpForce: 7
+  jumpHeight: 15
+  castingPoint: {x: 1, y: 0, z: 0}
+  rockProjectile: {fileID: 2997477703847862222, guid: 0490dfe1e9a34da438c4f803013093c3, type: 3}
+  moveSpeed: 30
 --- !u!1001 &1715880282
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
-    private Animator anim;
-    private Rigidbody2D rb;
     
+
+
+    [SerializeField] private Animator annimator;
+    [SerializeField] private Rigidbody2D rigidbody2;
+
     void Start()
     {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+      
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -26,8 +28,9 @@ public class PlayerLife : MonoBehaviour
     private void Die()
     {
 
-        rb.bodyType = RigidbodyType2D.Static;
-        anim.SetTrigger("death");
+        rigidbody2.bodyType = RigidbodyType2D.Static;
+        annimator.SetTrigger("death");
+       
     }
 
     private void RestartLevel()
