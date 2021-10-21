@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-    
-
 
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private Animator animator;
@@ -16,15 +14,16 @@ public class Movement : MonoBehaviour
     [SerializeField] private float jumpHeight;
     [SerializeField] public Vector3 castingPoint;
     [SerializeField] private GameObject rockProjectile;
+    [SerializeField] private float moveSpeed = 7f;
+
 
     private bool jumpFire;
     private float lastMoveDirection = 0f;
     
-    
     private float dirY;
     private float dirX;
 
-    [SerializeField] private float moveSpeed = 7f;
+   
 
    
     // Start is called before the first frame update
@@ -35,14 +34,14 @@ public class Movement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   //Input for rock throw
         if (Input.GetKeyDown(KeyCode.F))
         {
             animator.SetTrigger("isThrowingRock");
            
         }
        
-
+        ///Last movement
         dirX = Input.GetAxisRaw("Horizontal");
         if (dirX != 0)
         {
@@ -58,7 +57,7 @@ public class Movement : MonoBehaviour
                 castingPoint = new Vector3(Mathf.Abs(castingPoint.x) * 1, castingPoint.y, castingPoint.z);
             }
         }
-
+        //Jump controls
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             jumpFire = true;
@@ -70,7 +69,7 @@ public class Movement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    {   //Make diry (jumpFIRE= press space down) =jump height
         if (jumpFire)
         {
             dirY = jumpHeight;
@@ -81,7 +80,7 @@ public class Movement : MonoBehaviour
             dirY = 0;
         }
         
-
+        //Apply move speed and flip spirte
         rigidBody2d.AddForce(new Vector2(dirX, dirY) * moveSpeed, ForceMode2D.Impulse);
         Debug.Log("Fixed Update: " + dirY);
         if(lastMoveDirection == 1)
@@ -92,22 +91,8 @@ public class Movement : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
-        /*
-        if (rigidBody2d.velocity.x > .01)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else
-        {
-            spriteRenderer.flipX = true;
-        }
-        */
-
-
-
-        //animator.SetFloat("movedirX", Mathf.Round(rigidBody2d.velocity.x * 100f)/100f);
-        //animator.SetFloat("movedirY", Mathf.Round(rigidBody2d.velocity.y * 100f) / 100f);
-
+       
+        //Is running animator control
         if ((Mathf.Round(rigidBody2d.velocity.x * 100f) / 100f) != 0)
         {
             animator.SetBool("isRunning", true);
@@ -116,7 +101,7 @@ public class Movement : MonoBehaviour
         {
             animator.SetBool("isRunning", false);
         }
-
+        
         if ((Mathf.Round(rigidBody2d.velocity.y * 100f) / 100f) > 0)
         {
             animator.SetBool("isJumping", true);
@@ -135,16 +120,13 @@ public class Movement : MonoBehaviour
             animator.SetBool("isJumping", false);
         }
     }
-
+    //Tells when touching grounded to limit jump
     private bool IsGrounded()
     {
-        //We create a box around our player that has the same shape as the box collider (green rectangle), size and bounds do this
-        //, rotation is zero, vector2.down moves the box just slightly downwards, we can use this box to see if something overlapps with it, example the ground
-        //We do reutrn so that whenever isgrounded is run, it will return if the cast is on jumpable ground
         return Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
 
     }
-
+    //If colliding with trap, reset level
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trap"))
@@ -154,6 +136,7 @@ public class Movement : MonoBehaviour
             Die();
         }
     }
+    //If touches trap, repawn level
     private void Die()
     {
 
@@ -161,19 +144,20 @@ public class Movement : MonoBehaviour
         animator.SetTrigger("death");
 
     }
-
+    //restart level
     private void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
+    //Make gizmo for player
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position + castingPoint, .25f);
 
     }
-
+    //Instanciate rock object
     private void RockUp()
     {
         RockThrow projectileScript = Instantiate(rockProjectile, transform.position + castingPoint, Quaternion.identity).GetComponent<RockThrow>();
