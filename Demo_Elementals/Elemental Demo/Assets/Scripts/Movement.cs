@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   //Input for rock throw
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && IsGrounded())
         {
             animator.SetTrigger("isThrowingRock");
            
