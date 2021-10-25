@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
 
     [SerializeField] private LayerMask jumpableGround;
+    
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private BoxCollider2D boxCollider;
@@ -22,6 +23,7 @@ public class Movement : MonoBehaviour
     
     private float dirY;
     private float dirX;
+    private bool isStandingOnEarth = false;
 
    
 
@@ -35,7 +37,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   //Input for rock throw
-        if (Input.GetKeyDown(KeyCode.F) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.F) && IsGrounded() && isStandingOnEarth)
         {
             animator.SetTrigger("isThrowingRock");
            
@@ -131,9 +133,19 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
-
-
             Die();
+        }
+        else if(collision.gameObject.CompareTag("Earth"))
+        {
+            isStandingOnEarth = true;
+        }
+
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Earth"))
+        {
+            isStandingOnEarth = false;
         }
     }
     //If touches trap, repawn level
