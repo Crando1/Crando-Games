@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     private float dirX;
     private bool isStandingOnEarth = false;
     private bool canMove = true;
+  
 
    
 
@@ -46,7 +47,7 @@ public class Movement : MonoBehaviour
        
         ///Last movement
         dirX = Input.GetAxisRaw("Horizontal");
-        if (dirX != 0)
+        if (dirX != 0 && canMove == true)
         {
             lastMoveDirection = dirX;
             if (dirX < 0)
@@ -60,6 +61,7 @@ public class Movement : MonoBehaviour
                 castingPoint = new Vector3(Mathf.Abs(castingPoint.x) * 1, castingPoint.y, castingPoint.z);
             }
         }
+       
         //Jump controls
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
@@ -85,7 +87,6 @@ public class Movement : MonoBehaviour
         
         //Apply move speed and flip spirte
         rigidBody2d.AddForce(new Vector2(dirX, dirY) * moveSpeed, ForceMode2D.Impulse);
-        Debug.Log("Fixed Update: " + dirY);
         if(lastMoveDirection == 1)
         {
             spriteRenderer.flipX = false;
@@ -163,8 +164,6 @@ public class Movement : MonoBehaviour
     //If touches trap, repawn level
     private void Die()
     {
-
-        rigidBody2d.bodyType = RigidbodyType2D.Static;
         animator.SetTrigger("death");
         canMove = false;
 
@@ -195,14 +194,6 @@ public class Movement : MonoBehaviour
     private void ToggleRunOff()
     {
         canMove = false;
-        if (lastMoveDirection == 1)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if(lastMoveDirection == -1)
-        {
-            spriteRenderer.flipX = true;
-        }
 
     }
 }
