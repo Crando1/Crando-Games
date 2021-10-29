@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     private float dirY;
     private float dirX;
     private bool isStandingOnEarth = false;
+    private bool canMove = true;
 
    
 
@@ -121,6 +122,17 @@ public class Movement : MonoBehaviour
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", false);
         }
+        if(canMove == true)
+        {
+            rigidBody2d.bodyType = RigidbodyType2D.Dynamic;
+        }
+        else if(canMove == false)
+        {
+            rigidBody2d.bodyType = RigidbodyType2D.Static;
+        }
+
+
+        
     }
     //Tells when touching grounded to limit jump
     private bool IsGrounded()
@@ -154,6 +166,7 @@ public class Movement : MonoBehaviour
 
         rigidBody2d.bodyType = RigidbodyType2D.Static;
         animator.SetTrigger("death");
+        canMove = false;
 
     }
     //restart level
@@ -174,6 +187,23 @@ public class Movement : MonoBehaviour
     {
         RockThrow projectileScript = Instantiate(rockProjectile, transform.position + castingPoint, Quaternion.identity).GetComponent<RockThrow>();
         projectileScript.castDirection = new Vector2(lastMoveDirection, 0);
+    }
+    private void ToggleRunOn()
+    {
+        canMove = true;
+    }
+    private void ToggleRunOff()
+    {
+        canMove = false;
+        if (lastMoveDirection == 1)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if(lastMoveDirection == -1)
+        {
+            spriteRenderer.flipX = true;
+        }
+
     }
 }
 
