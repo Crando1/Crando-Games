@@ -16,7 +16,6 @@ public class Movement : MonoBehaviour
     [SerializeField] public Vector3 castingPoint;
     [SerializeField] private GameObject rockProjectile;
     [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private TerrainHandle terrainHandle;
 
 
     private bool jumpFire;
@@ -40,15 +39,11 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   //Input for rock throw
-        if (Input.GetKeyDown(KeyCode.F) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.F) && IsGrounded() && isStandingOnEarth)
         {
-            if(terrainHandle.GetTerrainTypeBelow(this.transform.position) == TerrainType.Dirt)
-            {
-                animator.SetTrigger("isThrowingRock");
-            }
+            animator.SetTrigger("isThrowingRock");
            
         }
-        
        
         ///Last movement
         dirX = Input.GetAxisRaw("Horizontal");
