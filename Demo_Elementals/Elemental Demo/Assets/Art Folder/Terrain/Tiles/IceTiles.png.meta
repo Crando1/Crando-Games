@@ -1,55 +1,67 @@
 fileFormatVersion: 2
-guid: 952b4bc28c4834e4784e15ceb6227405
+guid: 0447f4b9363158348ba7983220bb26f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4721547959098692984
+      213: -3460159215480765649
     second: Ice.MainTopLeft
   - first:
-      213: 6542776477959817182
+      213: -2704719637633108751
     second: Ice.MainTopMiddle
   - first:
-      213: -1665843731260323091
+      213: 9027842020760974929
     second: Ice.MainTopRight
   - first:
-      213: 3329448465871837151
+      213: -8084130977980850403
     second: Ice.PoleTop
   - first:
-      213: -519464783238859576
+      213: 796227354407451437
+    second: Ice.CornerBottomLeft
+  - first:
+      213: 8521569964753103184
+    second: Ice.CornerTopRight
+  - first:
+      213: 5138896808848898010
     second: Ice.MainMiddleLeft
   - first:
-      213: -7084717049720191507
+      213: -6233062829637429479
     second: Ice.MainMiddleMiddle
   - first:
-      213: -3356085912996302857
+      213: 191851736531686933
     second: Ice.MainMiddleRight
   - first:
-      213: 4366813882648148788
+      213: -2356528353022168967
     second: Ice.PoleMiddle
   - first:
-      213: -5427789272932379341
+      213: 2635243553839594547
+    second: IceTiles_10
+  - first:
+      213: 2206783409015456890
+    second: Ice.CornerBottomRight
+  - first:
+      213: 7143743413271825755
     second: Ice.MainBottomLeft
   - first:
-      213: 5748999794340694354
+      213: -6871143879455598040
     second: Ice.MainBottomMiddle
   - first:
-      213: -6680839664928681008
+      213: -8912152497159302262
     second: Ice.MainBottomRight
   - first:
-      213: 5417295041035650211
+      213: 6850566696773754838
     second: Ice.PoleBottom
   - first:
-      213: 7686624689637741118
-    second: Ice.PlatLeft
+      213: 6644931826801272651
+    second: Ice.Plat.Left
   - first:
-      213: -2545271711278099076
-    second: Ice.PlatMiddle
+      213: 5266256177858625366
+    second: Ice.Plat.Middle
   - first:
-      213: 4748636654893709815
-    second: Ice.PlatRight
+      213: -4332758760464454048
+    second: Ice.Plat.Right
   - first:
-      213: 8287612547732693688
-    second: Ice.PlatMain
+      213: -8376725524229288559
+    second: Ice.Solo
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -135,6 +147,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -147,14 +171,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88aa3f3a521b97eb0800000000000000
-      internalID: -4721547959098692984
+      spriteID: f2389f6b68b0bffc0800000000000000
+      internalID: -3460159215480765649
       vertices: []
       indices: 
       edges: []
@@ -168,14 +192,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed78395aa8c9cca50800000000000000
-      internalID: 6542776477959817182
+      spriteID: 1f4faddd1d7e67ad0800000000000000
+      internalID: -2704719637633108751
       vertices: []
       indices: 
       edges: []
@@ -189,14 +213,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deacae2d3fbb1e8e0800000000000000
-      internalID: -1665843731260323091
+      spriteID: 1567dcf7c76594d70800000000000000
+      internalID: 9027842020760974929
       vertices: []
       indices: 
       edges: []
@@ -210,14 +234,56 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd792425db3943e20800000000000000
-      internalID: 3329448465871837151
+      spriteID: d1f58b305b56fcf80800000000000000
+      internalID: -8084130977980850403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice.CornerBottomLeft
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2bb7eb6f84cc0b00800000000000000
+      internalID: 796227354407451437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice.CornerTopRight
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0592fb5dbb2b24670800000000000000
+      internalID: 8521569964753103184
       vertices: []
       indices: 
       edges: []
@@ -231,14 +297,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c4f8b9288d7ac8f0800000000000000
-      internalID: -519464783238859576
+      spriteID: ad7b3dcab67015740800000000000000
+      internalID: 5138896808848898010
       vertices: []
       indices: 
       edges: []
@@ -252,14 +318,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de5464531670ead90800000000000000
-      internalID: -7084717049720191507
+      spriteID: 91715c07166bf79a0800000000000000
+      internalID: -6233062829637429479
       vertices: []
       indices: 
       edges: []
@@ -273,14 +339,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ffa928b4a9cc61d0800000000000000
-      internalID: -3356085912996302857
+      spriteID: 516538d432899a200800000000000000
+      internalID: 191851736531686933
       vertices: []
       indices: 
       edges: []
@@ -294,14 +360,56 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43bbc73071a0a9c30800000000000000
-      internalID: 4366813882648148788
+      spriteID: 9703af6c2fdeb4fd0800000000000000
+      internalID: -2356528353022168967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceTiles_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c3f33dc04429420800000000000000
+      internalID: 2635243553839594547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice.CornerBottomRight
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a74879681d110ae10800000000000000
+      internalID: 2206783409015456890
       vertices: []
       indices: 
       edges: []
@@ -315,14 +423,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3359037f96e9ca4b0800000000000000
-      internalID: -5427789272932379341
+      spriteID: b5d8a9209cca32360800000000000000
+      internalID: 7143743413271825755
       vertices: []
       indices: 
       edges: []
@@ -336,14 +444,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 259887b7adc88cf40800000000000000
-      internalID: 5748999794340694354
+      spriteID: 82a1378eb0bc4a0a0800000000000000
+      internalID: -6871143879455598040
       vertices: []
       indices: 
       edges: []
@@ -357,14 +465,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d3169aa8b3e843a0800000000000000
-      internalID: -6680839664928681008
+      spriteID: a8395beb58ca15480800000000000000
+      internalID: -8912152497159302262
       vertices: []
       indices: 
       edges: []
@@ -378,20 +486,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a44a6443291e2b40800000000000000
-      internalID: 5417295041035650211
+      spriteID: 6df12576d1a121f50800000000000000
+      internalID: 6850566696773754838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ice.PlatLeft
+      name: Ice.Plat.Left
       rect:
         serializedVersion: 2
         x: 0
@@ -399,20 +507,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e32da930e606caa60800000000000000
-      internalID: 7686624689637741118
+      spriteID: b476d254a4a873c50800000000000000
+      internalID: 6644931826801272651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ice.PlatMiddle
+      name: Ice.Plat.Middle
       rect:
         serializedVersion: 2
         x: 16
@@ -420,20 +528,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c751b603dd06dacd0800000000000000
-      internalID: -2545271711278099076
+      spriteID: 65f38798710851940800000000000000
+      internalID: 5266256177858625366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ice.PlatRight
+      name: Ice.Plat.Right
       rect:
         serializedVersion: 2
         x: 32
@@ -441,20 +549,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f9b656d0eb86e140800000000000000
-      internalID: 4748636654893709815
+      spriteID: 06eed010dd2fed3c0800000000000000
+      internalID: -4332758760464454048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ice.PlatMain
+      name: Ice.Solo
       rect:
         serializedVersion: 2
         x: 48
@@ -462,14 +570,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b26da7d3b3830370800000000000000
-      internalID: 8287612547732693688
+      spriteID: 19d8d5b7484efbb80800000000000000
+      internalID: -8376725524229288559
       vertices: []
       indices: 
       edges: []
