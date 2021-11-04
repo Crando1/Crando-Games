@@ -40,15 +40,15 @@ public class Movement : MonoBehaviour
     void Update()
     {   //Input for rock throw
         if (Input.GetKeyDown(KeyCode.F) && IsGrounded())
-            if (Input.GetKeyDown(KeyCode.F) && IsGrounded())
-            {
-                animator.SetTrigger("isThrowingRock");
-                if (terrainHandle.GetTerrainTypeBelow(this.transform.position) == TerrainType.Dirt)
-                {
+            
+        {
+          animator.SetTrigger("isThrowingRock");
+          if (terrainHandle.GetTerrainTypeBelow(this.transform.position) == TerrainType.Dirt)
+           {
                     animator.SetTrigger("isThrowingRock");
-                }
+          }
 
-            }
+        }
 
         ///Last movement
         dirX = Input.GetAxisRaw("Horizontal");

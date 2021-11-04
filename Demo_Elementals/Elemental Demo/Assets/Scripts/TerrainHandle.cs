@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public enum TerrainType {None, Dirt};
+public enum TerrainType {None, Dirt, Ice};
 public class TerrainHandle : MonoBehaviour
 {
 
@@ -23,6 +23,8 @@ public class TerrainHandle : MonoBehaviour
         
     }
 
+    (terrainHandle.GetTerrainTypeBelow(this.transform.position) == TerrainType.Dirt)
+
 
     public TerrainType GetTerrainTypeBelow(Vector3 position)
     {
@@ -32,6 +34,8 @@ public class TerrainHandle : MonoBehaviour
         {
             case "Dirt":
                 return TerrainType.Dirt;
+            case "Ice":
+                return TerrainType.Ice;
             default:
                 break;
         }
