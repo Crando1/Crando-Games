@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     [SerializeField] public Vector3 castingPoint;
     [SerializeField] private GameObject rockProjectile;
     [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] private TerrainHandle terrainHandle;
 
 
     private bool jumpFire;
@@ -23,7 +24,6 @@ public class Movement : MonoBehaviour
     
     private float dirY;
     private float dirX;
-    private bool isStandingOnEarth = false;
     private bool canMove = true;
   
 
@@ -39,12 +39,17 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   //Input for rock throw
-        if (Input.GetKeyDown(KeyCode.F) && IsGrounded() && isStandingOnEarth)
-        {
-            animator.SetTrigger("isThrowingRock");
-           
-        }
-       
+        if (Input.GetKeyDown(KeyCode.F) && IsGrounded())
+            if (Input.GetKeyDown(KeyCode.F) && IsGrounded())
+            {
+                animator.SetTrigger("isThrowingRock");
+                if (terrainHandle.GetTerrainTypeBelow(this.transform.position) == TerrainType.Dirt)
+                {
+                    animator.SetTrigger("isThrowingRock");
+                }
+
+            }
+
         ///Last movement
         dirX = Input.GetAxisRaw("Horizontal");
         if (dirX != 0 && canMove == true)
@@ -148,19 +153,10 @@ public class Movement : MonoBehaviour
         {
             Die();
         }
-        else if(collision.gameObject.CompareTag("Earth"))
-        {
-            isStandingOnEarth = true;
-        }
+    
 
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Earth"))
-        {
-            isStandingOnEarth = false;
-        }
-    }
+ 
     //If touches trap, repawn level
     private void Die()
     {
