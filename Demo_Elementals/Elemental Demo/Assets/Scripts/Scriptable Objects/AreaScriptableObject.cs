@@ -19,14 +19,14 @@ public class Area
 [CreateAssetMenu(fileName = "AreaScriptableObject", menuName = "ScriptableObjects/Data/Areas")]
 public class AreaScriptableObject : ScriptableObject
 {
+    public static AreaScriptableObject Instance;
     public List<Area> areasList = new List<Area>();
 
-    void OnDrawGizmos()
+    private void OnEnable()
     {
-        foreach(Area area in areasList)
+        if(Instance == null)
         {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(area.bounds.center, area.bounds.size);
-        } 
+            Instance = this; 
+        }
     }
 }
