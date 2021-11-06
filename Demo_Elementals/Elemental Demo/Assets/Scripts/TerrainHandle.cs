@@ -23,7 +23,7 @@ public class TerrainHandle : MonoBehaviour
         
     }
 
-    (terrainHandle.GetTerrainTypeBelow(this.transform.position) == TerrainType.Dirt)
+ 
 
 
     public TerrainType GetTerrainTypeBelow(Vector3 position)
