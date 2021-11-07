@@ -8,11 +8,13 @@ public class Area
 {
     public string name;
     public BoundsInt bounds;
+    public bool lockX;
 
-    Area()
+    public Area()
     {
         this.name = "";
         this.bounds = new BoundsInt();
+        this.lockX = true;
     }
 }
 
@@ -28,5 +30,20 @@ public class AreaScriptableObject : ScriptableObject
         {
             Instance = this; 
         }
+
+    }
+
+    public Area GetPlayerArea(Vector3 playerPosition)
+    {
+        Debug.Log(playerPosition);
+        for (int i = 0; i < areasList.Count; i++)
+        {
+            if (areasList[i].bounds.Contains(Vector3Int.FloorToInt(playerPosition)))
+            {
+                return areasList[i];
+            }
+        }
+
+        return new Area();
     }
 }

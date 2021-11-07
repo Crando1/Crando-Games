@@ -15346,6 +15346,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1705887616}
+  target: {x: 0, y: 0, z: 0}
+  smoothSpeed: 0.125
+  playerSmoothSpeed: 0.95
+  areaSmoothSpeed: 0.125
+  offset: {x: 0, y: 0, z: -10}
 --- !u!114 &1958309101
 MonoBehaviour:
   m_ObjectHideFlags: 0
